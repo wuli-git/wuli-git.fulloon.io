@@ -1,7 +1,9 @@
 ---
 title: Uni-app 项目如何用 GitHub CI/CD 自动部署到 GitHub Pages：完整 SOP、底层原理与避坑总结
 tag: tips  deploy CI/CD
-author: cc00mi
+author:
+  - cc00mi
+  - wuli
 ---
 
 ## 一、写在前面
@@ -1738,5 +1740,9 @@ CI/CD 的关键关注点也会变成：
   https://docs.github.com/en/rest/actions/variables
 - Railway Variables：  
   https://docs.railway.com/variables
+<<<<<<< HEAD
 - Railway CLI / Deploying：  
+=======
+- Railway CLI / Deploying：
+>>>>>>> e4293e6 (feat: support co-authors for post)
   https://docs.railway.com/cli/deploying

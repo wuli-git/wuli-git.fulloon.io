@@ -1,4 +1,17 @@
-{%- assign _author = site.data.authors[include.article.author] | default: site.author -%}
+{%- assign _author_names = '' -%}
+{%- if include.article.author[0] -%}
+  {%- for _author_id in include.article.author -%}
+    {%- assign _author_data = site.data.authors[_author_id] -%}
+    {%- assign _author_name = _author_data.name | default: _author_id -%}
+    {%- if _author_names != '' -%}
+      {%- assign _author_names = _author_names | append: ', ' -%}
+    {%- endif -%}
+    {%- assign _author_names = _author_names | append: _author_name -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign _author = site.data.authors[include.article.author] | default: site.author -%}
+  {%- assign _author_names = _author.name -%}
+{%- endif -%}
 
 {%- if include.html != false -%}
 
@@ -57,7 +70,7 @@
       {%- if _show_author or _show_date or _pageview -%}
         <ul class="right-col menu">
           {%- if _show_author  -%}
-            <li><i class="fas fa-user"></i> <span>{{ _author.name }}</span></li>
+            <li><i class="fas fa-user"></i> <span>{{ _author_names }}</span></li>
           {%- endif -%}
 
           {%- if _show_date -%}
